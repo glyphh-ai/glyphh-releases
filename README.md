@@ -37,7 +37,7 @@ export GLYPH_RUNTIME_LOG_LEVEL=INFO
 
 ## License File
 
-Local runtimes require a signed license file. Obtain it from the Glyphh admin console.
+Local runtimes require a signed license file. Obtain it from the Glyphh AI customer portal.
 
 ```
 mkdir -p ~/.glyphh/runtime
