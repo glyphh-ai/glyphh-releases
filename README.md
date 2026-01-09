@@ -11,7 +11,7 @@ Example:
 
 ```
 tar -xzf glyphh-runtime-vX.Y.Z.tar.gz
-cd glyphh-runtime
+cd glyphh-runtime-vX.Y.Z-<platform>
 ```
 
 ## Configure (Environment)
@@ -47,7 +47,13 @@ cp ~/Downloads/license-dev.json ~/.glyphh/runtime/license.json
 ## Start the Runtime
 
 ```
-python3 -m uvicorn api.main:app --host 0.0.0.0 --port ${GLYPH_RUNTIME_PORT:-8080}
+./run.sh
+```
+
+If you prefer to run directly:
+
+```
+./venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port ${GLYPH_RUNTIME_PORT:-8080}
 ```
 
 ## Import a Bundle
