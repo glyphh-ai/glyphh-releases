@@ -35,6 +35,61 @@ export GLYPH_RUNTIME_PORT=8080
 export GLYPH_RUNTIME_LOG_LEVEL=INFO
 ```
 
+## Database Setup
+
+The runtime uses Postgres + pgvector. Migrations are applied on startup by
+default (`GLYPH_RUN_MIGRATIONS=true`).
+
+Option A: Docker Compose (recommended)
+
+```
+curl -L -o docker-compose.runtime.yml https://raw.githubusercontent.com/glyphh-ai/glyphh-runtime/main/docker-compose.runtime.yml
+docker compose -f docker-compose.runtime.yml up -d
+```
+
+This starts a local Postgres with pgvector at:
+
+```
+postgresql+psycopg://glyphh:glyphh@localhost:5432/glyphh_runtime
+```
+
+Option B: Manual Postgres
+
+1. Install Postgres 16+ and pgvector.
+2. Create a database and user for the runtime.
+3. Set `GLYPH_DATABASE_URL` to point at it.
+
+Example (psql):
+
+```
+CREATE ROLE glyphh WITH LOGIN PASSWORD 'glyphh';
+CREATE DATABASE glyphh_runtime OWNER glyphh;
+\\c glyphh_runtime
+CREATE EXTENSION IF NOT EXISTS vector;
+```
+
+> Note: On startup, the runtime applies database migrations automatically.
+> To disable auto-migrations (and manage them manually), set:
+
+```
+export GLYPH_RUN_MIGRATIONS=false
+```
+
+## License Request Payload
+
+On first run, the runtime writes a license request payload you can send to
+your admin for issuance. Default path:
+
+```
+~/.glyphh/runtime/license_request.json
+```
+
+Share that JSON with your admin, then place the issued license at:
+
+```
+~/.glyphh/runtime/license.json
+```
+
 ## License File
 
 Local runtimes require a signed license file. Obtain it from the Glyphh AI customer portal.
