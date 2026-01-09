@@ -1,4 +1,4 @@
-# Glyphh AI Runtime Releases
+# Glyphh AI Releases
 
 Public, read-only repository for Glyphh Runtime release artifacts. Contains tar/zip downloads and release notes only (no source code).
 
