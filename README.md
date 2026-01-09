@@ -1,6 +1,18 @@
 # Glyphh AI Releases
 
-Public, read-only repository for Glyphh Runtime release artifacts. Contains tar/zip downloads and release notes only (no source code).
+Public, read-only repository for Glyphh Runtime and SDK release artifacts. Contains downloads and release notes only (no source code).
+
+## SDK (Wheel) Install
+
+Use the SDK wheel for local model development and testing.
+
+```
+python3.10 -m venv .venv
+source .venv/bin/activate
+pip install /path/to/glyphh-*.whl
+```
+
+Download the wheel from the Releases page.
 
 ## Install (Manual)
 
