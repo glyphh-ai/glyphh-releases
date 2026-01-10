@@ -123,6 +123,12 @@ If you prefer to run directly:
 ./venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port ${GLYPH_RUNTIME_PORT:-8080}
 ```
 
+Windows (PowerShell):
+
+```
+.\run.ps1
+```
+
 ## Import a Bundle
 
 ```
